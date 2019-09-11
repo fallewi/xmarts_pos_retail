@@ -1,0 +1,20 @@
+<odoo>
+  <data>
+    <record id="add_pos_order_form_laundry" model="ir.ui.view">
+          <field name="name">add_pos_order_form_laundry</field>
+          <field name="model">pos.order</field>
+          <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+          <field name="arch" type="xml">
+            <xpath expr="//field[@name='session_id']" position="after">
+              <field name="laundry_state" readonly="0"/>
+              <field name="laundry_priority" readonly="0"/>
+              <field name="fechahora" readonly="0"/>
+              <field name="fechahorae" readonly="0"/>
+            </xpath>
+          </field>
+        </record>
+
+   
+
+  </data>
+</odoo>

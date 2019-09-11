@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <template id="assets_format" name="pos_order_receipt_custom_assets" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+  <script type="text/javascript" src="/xmarts_pos_retail/static/src/js/buttons_custom.js"></script>
+  <script type="text/javascript" src="/xmarts_pos_retail/static/src/js/popups_custom.js"></script>
+   <script type="text/javascript" src="/xmarts_pos_retail/static/src/js/screen_order_widget_custom.js"></script>
+   <script type="text/javascript" src="/xmarts_pos_retail/static/src/js/screen_pos_orders_custom.js"></script>
+   
+   <script type="text/javascript" src="/xmarts_pos_retail/static/src/js/order_custom.js"></script>
+    <script type="text/javascript" src="/xmarts_pos_retail/static/src/js/load_models.js"></script>
+                
+                  <link rel="stylesheet" href="/xmarts_pos_retail/static/src/css/custom_priority.css"/>
+            </xpath>
+
+        </template>
+
+</odoo>
