@@ -288,8 +288,7 @@ odoo.define('pos_retail.screen_client_list', function (require) {
                 this.passed_input('input[name="mobile"]');
             }
             if(!fields['email']){
-                return this.wrong_input('input[email="email"]','(*) Field Email is required');
-
+                return this.wrong_input('input[name="email"]','(*) Field Email is required');
             }else{
                 if (this.pos.config.check_duplicate_email && fields['email']) {
                 var is_duplicated = this._check_is_duplicate(fields['email'], 'email', id);
