@@ -297,54 +297,76 @@
                     </div>
                 </div>
                 <div class='client-details-right'>
-                    <div class='client-detail'>
-                        <t t-if="order.state == 'draft' or order.state == 'partial_payment'">
-                            <span class='label'>Register Amount</span>
-                            <button style="width: 120px; height:45px" type="button" class="btn btn-danger register_amount">
-                                <i class="fa fa-plus"/>
-                            </button>
-                        </t>
-                    </div>
-                    <div class='client-detail'>
-                        <t t-if="order.state == 'paid' and order.partner">
-                            <span class='label'>Create Invoice</span>
-                            <button type="button" class="btn btn-info button_form create_invoice">
-                                <i class="fa fa-money"/>
-                            </button>
-                        </t>
-                    </div>
+                    <t t-if="order.state != 'cancel'">
+                        <div class='client-detail'>
+                            <t t-if="order.state == 'draft' or order.state == 'partial_payment'">
+                                <span class='label'>Register Amount</span>
+                                <button style="width: 120px; height:45px" type="button" class="btn btn-danger register_amount">
+                                    <i class="fa fa-plus"/>
+                                </button>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-if="order.state != 'cancel'">
+                        <div class='client-detail'>
+                            <t t-if="order.state == 'paid' and order.partner">
+                                <span class='label'>Create Invoice</span>
+                                <button type="button" class="btn btn-info button_form create_invoice">
+                                    <i class="fa fa-money"/>
+                                </button>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-if="order.state != 'cancel'">
                      <div t-if="order.laundry_state == 'pendiente'" class='client-detail'>
                         <span class='label'>Procesar</span>
                         <button type="button" rel="tooltip" class="btn btn-success button_form procesa_orden">
                             <i class="fa fa-gear"/>
                         </button>
-                    </div>
-                    <div t-if="order.laundry_state == 'proceso'" class='client-detail'>
-                        <span class='label'>Terminado</span>
-                        <button type="button" rel="tooltip" class="btn btn-success button_form termina_orden">
-                            <i class="fa fa-check-circle"/>
-                        </button>
-                    </div>
-                    <div t-if="order.laundry_state == 'terminado'" class='client-detail'>
-                        <span class='label'>Entregar</span>
-                        <button type="button" rel="tooltip" class="btn btn-success button_form entrega_orden">
-                            <i class="fa fa-angle-double-right"/>
-                        </button>
-                    </div>
+                     </div>
+                    </t>
+                    <t t-if="order.state != 'cancel'">
+                        <div t-if="order.laundry_state == 'proceso'" class='client-detail'>
+                            <span class='label'>Terminado</span>
+                            <button type="button" rel="tooltip" class="btn btn-success button_form termina_orden">
+                                <i class="fa fa-check-circle"/>
+                            </button>
+                        </div>
+                    </t>
+                    <t t-if="order.state != 'cancel'">
+                        <div t-if="order.laundry_state == 'terminado'" class='client-detail'>
+                            <span class='label'>Entregar</span>
+                            <button type="button" rel="tooltip" class="btn btn-success button_form entrega_orden">
+                                <i class="fa fa-angle-double-right"/>
+                            </button>
+                        </div>
+                    </t>
                     <div class='client-detail'>
                         <span class='label'>Print Receipt</span>
                         <button type="button" rel="tooltip" class="btn btn-success button_form reprint_order">
                             <i class="fa fa-print"/>
                         </button>
                     </div>
-                    <div class='client-detail'>
-                        <t t-if="order.state != 'draft'">
-                            <span class='label'>Return Order</span>
-                            <button type="button" class="btn btn-danger button_form return_order">
-                                <i class="fa fa-angle-double-left"/>
-                            </button>
-                        </t>
-                    </div>
+                    <t t-if="order.state != 'cancel'">
+                        <div class='client-detail'>
+                            <t t-if="order.state != 'draft'">
+                                <span class='label'>Return Order</span>
+                                <button type="button" class="btn btn-danger button_form return_order">
+                                    <i class="fa fa-angle-double-left"/>
+                                </button>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-if="order.state != 'cancel'">
+                        <div class='client-detail'>
+                            <t t-if="order.laundry_state != 'entregado'">
+                                <span class='label'>Calcelar</span>
+                                <button type="button" class="btn btn-danger button_form button_cancelar">
+                                    <i class="fa fa-times"/>
+                                </button>
+                            </t>
+                        </div>
+                    </t>
                     <div class='client-detail'>
                         <span class='label'>Open Order</span>
                         <a class='so_link' target='_blank' t-att-href="order.link">(Click here)</a>

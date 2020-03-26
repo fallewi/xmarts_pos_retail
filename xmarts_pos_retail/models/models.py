@@ -31,6 +31,15 @@ class pos_orders(models.Model):
         return {"res": res}
 
     @api.model
+    def compute_cancelar_order(self, x):
+        print("Datos :::: ",x)
+        order = self.env['pos.order'].search([('id','=',x[0])], limit=1)
+        print("Datos ::::: ",x[1])
+        order.update({'state': x[1]})
+        res = x[1]
+        return {"res": res}
+
+    @api.model
     def _order_fields(self, ui_order):
         order_fields = super(pos_orders, self)._order_fields(ui_order)
         #Se agrega get de estado de prendas

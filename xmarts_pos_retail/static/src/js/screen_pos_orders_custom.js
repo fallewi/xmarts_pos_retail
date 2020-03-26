@@ -449,7 +449,7 @@ odoo.define('xmarts_pos_retail.screen_pos_orders_custom', function (require) {
                     });
                 }
             });
-               this.$('.procesa_orden').click(function () {
+            this.$('.procesa_orden').click(function () {
                 var order = self.order_selected;
                 rpc.query({
                 model: 'pos.order',
@@ -458,6 +458,19 @@ odoo.define('xmarts_pos_retail.screen_pos_orders_custom', function (require) {
                 }).then(function (res) {
                     var res = res.res;
                     order['laundry_state'] = res;
+                    self.display_pos_order_detail(order);
+                });
+            });
+
+            this.$('.button_cancelar').click(function () {
+                var order = self.order_selected;
+                rpc.query({
+                model: 'pos.order',
+                method: 'compute_cancelar_order',
+                args:[[order['id'],'cancel']],
+                }).then(function (res) {
+                    var res = res.res;
+                    order['state'] = res;
                     self.display_pos_order_detail(order);
                 });
             });
