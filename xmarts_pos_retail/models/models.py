@@ -34,7 +34,6 @@ class pos_orders(models.Model):
     def compute_cancelar_order(self, x):
         print("Datos :::: ",x)
         order = self.env['pos.order'].search([('id','=',x[0])], limit=1)
-        print("Datos ::::: ",x[1])
         order.update({'state': x[1]})
         res = x[1]
         return {"res": res}
