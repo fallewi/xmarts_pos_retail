@@ -11,7 +11,6 @@
             </div>
         </div>
     </t>
-
     <t t-extend="PosTicket">
 
         <t t-jquery=".receipt-change" t-operation="after">
@@ -58,6 +57,23 @@
                     </t>
                 </table>
             </t>
+
+            <div class="order-widget-title" style="width: 100%;
+                                                    margin-bottom: 5px;
+                                                    border-bottom: dashed 1px #e6e6e6;
+                                                    cursor: pointer;
+                                                    -webkit-box-sizing: border-box;
+                                                    -moz-box-sizing: border-box;
+                                                    -ms-box-sizing: border-box;
+                                                    box-sizing: border-box;
+                                                    -webkit-transition: background 250ms ease-in-out;
+                                                    -moz-transition: background 250ms ease-in-out;
+                                                    transition: background 250ms ease-in-out;
+                                                    font-weight: bold;
+                                                    height: 30px;
+                                                    border-bottom:dashed 1px #555555;
+                                                    line-height: 30px;">
+            </div>
         </t>
     </t>
      <t t-name="popup_order_priority">
